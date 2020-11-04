@@ -286,7 +286,7 @@ class EPub {
 
             $navPoint = new NavPoint(StringHelper::decodeHtmlEntities($chapterName), $fileName, "chapter" . $this->chapterCount);
             $this->ncx->addNavPoint($navPoint);
-            $this->ncx->chapterList[$chapterName] = $navPoint;
+            $this->ncx->chapterList[$fileName] = $navPoint;
         } elseif (is_array($chapter)) {
             $this->log->logLine("addChapter: \$chapterName: $chapterName ; \$fileName: $fileName ; ");
             $fileNameParts = pathinfo($fileName);
@@ -1948,7 +1948,7 @@ class EPub {
         $this->tocCSSClass = $tocCSSClass;
         $this->tocAddReferences = $addReferences;
 
-        $this->opf->addReference(Reference::TABLE_OF_CONTENTS, $title, $this->tocFileName);
+        // $this->opf->addReference(Reference::TABLE_OF_CONTENTS, $title, $this->tocFileName);
         if (!$this->tocNavAdded) {
             $this->opf->addItemRef("ref_" . Reference::TABLE_OF_CONTENTS, false);
 
@@ -2191,7 +2191,7 @@ class EPub {
                     $level = $navPoint->getLevel() - 2;
                     $tocData .= "\t<p class='level" . ($level+1) . "'>"
                         /* . str_repeat(" &#160;  &#160;  &#160;", $level) . */
-                        . "<a href=\"" . $fileName . "\">" . $chapterName . "</a></p>\n";
+                        . "<a href=\"" . $fileName . "\">" . $navPoint->getLabel() . "</a></p>\n";
                 }
             } else {
                 if ($this->tocAddReferences === true) {
