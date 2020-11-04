@@ -1,5 +1,5 @@
 {
-    "name": "wallabag/phpepub",
+    "name": "ayalon/phpepub",
     "type": "library",
     "description": "Package to create and stream e-books in the ePub 2.0 and 3.0 formats.",
     "keywords": ["epub", "e-book"],
@@ -27,6 +27,11 @@
         {
             "name": "Kevin Decherf",
             "homepage": "https://kdecherf.com",
+            "role": "Contributor"
+        },
+        {
+            "name": "ayalon GmbH",
+            "homepage": "https://ayalon.ch",
             "role": "Contributor"
         }
     ],
