@@ -89,6 +89,11 @@ class StringHelper {
      * @return string with the stripped entities.
      */
     public static function decodeHtmlEntities($string) {
+
+        if (is_array($string)) {
+            $string = implode(' ', $string);
+        }
+
         $string = preg_replace('~\s*<br\s*/*\s*>\s*~i', "\n", $string);
         $string = preg_replace('~\s*</(p|div)\s*>\s*~i', "\n\n", $string);
         $string = preg_replace('~<[^>]*>~', '', $string);
