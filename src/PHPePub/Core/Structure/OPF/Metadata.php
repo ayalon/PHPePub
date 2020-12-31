@@ -115,7 +115,7 @@ class Metadata {
             $this->addNamespace("dc", StaticData::$namespaces["dc"]);
         }
 
-        $metadata = "\t<metadata>\n";
+        $metadata = "\t<metadata xmlns:opf=\"http://www.idpf.org/2007/opf\">\n";
 
         foreach ($this->dc as $dc) {
             /** @var $dc MetaValue */

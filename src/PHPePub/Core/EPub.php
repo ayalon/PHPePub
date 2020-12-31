@@ -2079,10 +2079,6 @@ class EPub {
             $this->ncx->addMetaEntry("dtb:generator", $gen);
         }
 
-        if ($this->EPubMark) {
-            $this->opf->addMeta("generator", "EPub (Version " . self::VERSION . ") by A. Grandt, http://www.phpclasses.org/package/6115 or https://github.com/Grandt/PHPePub/");
-        }
-
         $firstChapterNavPoint = reset($this->ncx->chapterList);
         $firstChapterName = key($this->ncx->chapterList);
 
