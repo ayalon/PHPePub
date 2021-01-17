@@ -607,6 +607,8 @@ class EPub {
                 $internalPath = pathinfo($source, PATHINFO_DIRNAME);
 
                 $path = $source;
+                // Remove Drupal Image token.
+                $path = substr($path, 0, strpos($path, '?'));
                 if (!file_exists($path)) {
                     $path = $this->docRoot . $path;
                 }
